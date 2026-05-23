@@ -1,14 +1,15 @@
 class Solution(object):
     def groupAnagrams(self, strs):
-        hashmaps = {}
+        sortedMap = {}
 
         for s in strs:
+            _sortedstr = "".join(sorted(s))
 
-            _sorted = "".join(sorted(s))
-
-            if _sorted in hashmaps:
-                hashmaps[_sorted].append(s)
+            if _sortedstr in sortedMap:
+                sortedMap[_sortedstr].append(s)
             else:
-                hashmaps[_sorted] = [s]
+                sortedMap[_sortedstr] = [s]
 
-        return list(hashmaps.values())            
+        return list(sortedMap.values())
+          
+        
